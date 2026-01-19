@@ -20,7 +20,7 @@ Additionally:
 Task:
 - Design a Solidity smart contract
 - Use logical AND (&&), OR (||), and NOT (!)
-- Determine whether the farmer is eligible for subsidy
+- Determine whether the farmer is eligible
 - Return true if eligible, otherwise false
 */
 
@@ -33,6 +33,10 @@ contract Subsidy {
         bool isPriority
     ) public pure returns (bool) {
 
-        return (age >= 21 && !isDefaulter && (ownsLand || isPriority));
+        if (age >= 21 && !isDefaulter && (ownsLand || isPriority)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
